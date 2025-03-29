@@ -6,9 +6,9 @@ import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
 
-__BASE_API_URL = st.secrets("BASE_API_URL") #os.getenv("BASE_API_URL")
-__UPLOAD_ENDPOINT = st.secrets("UPLOAD_ENDPOINT")
-__CHAT_ENDPOINT = st.secrets("CHAT_ENDPOINT")
+__BASE_API_URL = st.secrets["BASE_API_URL"] #os.getenv("BASE_API_URL")
+__UPLOAD_ENDPOINT = st.secrets["UPLOAD_ENDPOINT"]
+__CHAT_ENDPOINT = st.secrets["CHAT_ENDPOINT"]
 
 def API_upload_doc(files: Any) -> str:
     """Document upload and processing."""

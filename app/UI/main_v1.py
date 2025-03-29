@@ -1,7 +1,6 @@
 import os
-import pprint
 import streamlit as st
-from app.UI.UI2API_client import API_upload_doc, API_upload_doc_multi
+from app.UI.UI2API_client import API_upload_doc_multi
 from app.UI.chat import chat_interface
 from app.UI.sidebar import SidebarUI
 import certifi
