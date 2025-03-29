@@ -6,9 +6,9 @@ import streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
 
-__BASE_API_URL = os.getenv("BASE_API_URL")
-__UPLOAD_ENDPOINT = os.getenv("UPLOAD_ENDPOINT")
-__CHAT_ENDPOINT = os.getenv("CHAT_ENDPOINT")
+__BASE_API_URL = st.secrets("BASE_API_URL") #os.getenv("BASE_API_URL")
+__UPLOAD_ENDPOINT = st.secrets("UPLOAD_ENDPOINT")
+__CHAT_ENDPOINT = st.secrets("CHAT_ENDPOINT")
 
 def API_upload_doc(files: Any) -> str:
     """Document upload and processing."""
@@ -58,7 +58,7 @@ def API_chat(user_prompt: str):
     payload = {"user_prompt": user_prompt}
     print("Sending Payload:", payload)
     try:
-        response = requests.post(f"{__BASE_API_URL}/chat", json=payload)
+        response = requests.post(f"{__BASE_API_URL}/{__CHAT_ENDPOINT}", json=payload)
         # print("Response Status:", response.status_code)
         # print("Response Text:", response.text)
         response.raise_for_status()  # This will raise an error for non-2xx responses
